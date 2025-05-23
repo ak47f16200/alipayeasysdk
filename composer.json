@@ -2,7 +2,7 @@
 	"name":"alipayeasysdk",
 	"description":"支付宝官方 Alipay Easy SDK,增加openid支持",
 	"type":"library",
-	"version":"2.2.3",
+	"version":"1.0.1",
 	"authors":[
 		{
 			"name":"junying.wjy",
