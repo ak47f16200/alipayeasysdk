@@ -1,5 +1,5 @@
 {
-	"name":"alipayeasysdk",
+	"name":"luwc/alipayeasysdk",
 	"description":"支付宝官方 Alipay Easy SDK,增加openid支持",
 	"type":"library",
 	"version":"1.0.1",
