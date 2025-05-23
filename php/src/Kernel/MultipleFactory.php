@@ -27,6 +27,7 @@ use Alipay\EasySDK\Util\AES\Client as aesClient;
  */
 class MultipleFactory
 {
+    /** @var \Alipay\EasySDK\Kernel\Config */
     public $config = null;
 
     /** @var \Alipay\EasySDK\Kernel\EasySDKKernel */
@@ -53,7 +54,7 @@ class MultipleFactory
             $config->alipayPublicKey = $certEnvironment->getCachedAlipayPublicKey();
         }
 
-        $kernel = new EasySDKKernel($config);
+        $this->kernel = $kernel = new EasySDKKernel($config);
         self::$base = new Base($kernel);
         self::$marketing = new Marketing($kernel);
         self::$member = new Member($kernel);
@@ -62,6 +63,13 @@ class MultipleFactory
         self::$util = new Util($kernel);
     }
 
+    /**
+     * @param $config
+     * @return self
+     * @version 1.0.0
+     * @author luwc
+     * @time 2025/5/23 17:03
+     */
     public static function setOptions($config)
     {
         self::$instance = new self($config);
@@ -72,31 +80,67 @@ class MultipleFactory
     {
     }
 
+    /**
+     * @return Base
+     * @version 1.0.0
+     * @author luwc
+     * @time 2025/5/23 17:04
+     */
     public static function base()
     {
         return self::$base;
     }
 
+    /**
+     * @return Marketing
+     * @version 1.0.0
+     * @author luwc
+     * @time 2025/5/23 17:04
+     */
     public static function marketing()
     {
         return self::$marketing;
     }
 
+    /**
+     * @return Member
+     * @version 1.0.0
+     * @author luwc
+     * @time 2025/5/23 17:04
+     */
     public static function member()
     {
         return self::$member;
     }
 
+    /**
+     * @return Payment
+     * @version 1.0.0
+     * @author luwc
+     * @time 2025/5/23 17:04
+     */
     public static function payment()
     {
         return self::$payment;
     }
 
+    /**
+     * @return Security
+     * @version 1.0.0
+     * @author luwc
+     * @time 2025/5/23 17:04
+     */
     public static function security()
     {
         return self::$security;
     }
 
+    /**
+     * @return Util
+     * @version 1.0.0
+     * @author luwc
+     * @time 2025/5/23 17:04
+     */
     public static function util()
     {
         return self::$util;
