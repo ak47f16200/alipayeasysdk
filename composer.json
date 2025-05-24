@@ -1,12 +1,12 @@
 {
 	"name":"luwc/alipayeasysdk",
-	"description":"支付宝官方 Alipay Easy SDK,增加openid支持",
+	"description":"基于支付宝官方 Alipay Easy SDK,增加openid支持",
 	"type":"library",
 	"version":"1.0.3",
 	"authors":[
 		{
-			"name":"junying.wjy",
-			"email":"junying.wjy@antfin.com"
+			"name":"luwc",
+			"email":"ak47f16200@126.com"
 		}
 	],
 	"autoload":{

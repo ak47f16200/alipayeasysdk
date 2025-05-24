@@ -42,7 +42,7 @@ class Client
      */
     public function create($subject, $outTradeNo, $totalAmount, $buyerId = '', $buyerOpenId = '')
     {
-        if (empty($buyerId) || empty($buyerOpenId)) {
+        if (empty($buyerId) && empty($buyerOpenId)) {
             throw new TeaError([
                 "message" => "buyerId、buyerOpenId二选一 必传入。"
             ]);
