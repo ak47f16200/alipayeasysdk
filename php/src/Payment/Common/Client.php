@@ -90,7 +90,7 @@ class Client
                     "buyer_id" => $buyerId,
                     "buyer_open_id" => $buyerOpenId,
                 ];
-                if (empty($opAppId)) {
+                if (!empty($opAppId)) {
                     unset($bizParams["buyer_open_id"], $bizParams["buyer_id"]);
                     $bizParams["op_app_id"] = $opAppId;
                     $bizParams["op_buyer_open_id"] = $buyerOpenId;
