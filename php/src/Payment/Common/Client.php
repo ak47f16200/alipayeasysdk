@@ -35,12 +35,13 @@ class Client
      * @param string $totalAmount
      * @param string $buyerId
      * @param string $buyerOpenId
+     * @param string $opAppId 同一小程序收款到不同商户时拉起收银台支付时对应的小程序应用的 APPID
      * @return AlipayTradeCreateResponse
      * @throws TeaError
      * @throws Exception
      * @throws TeaUnableRetryError
      */
-    public function create($subject, $outTradeNo, $totalAmount, $buyerId = '', $buyerOpenId = '')
+    public function create($subject, $outTradeNo, $totalAmount, $buyerId = '', $buyerOpenId = '', $opAppId = '')
     {
         if (empty($buyerId) && empty($buyerOpenId)) {
             throw new TeaError([
@@ -89,6 +90,11 @@ class Client
                     "buyer_id" => $buyerId,
                     "buyer_open_id" => $buyerOpenId,
                 ];
+                if (empty($opAppId)) {
+                    unset($bizParams["buyer_open_id"], $bizParams["buyer_id"]);
+                    $bizParams["op_app_id"] = $opAppId;
+                    $bizParams["op_buyer_open_id"] = $buyerOpenId;
+                }
                 $textParams = [];
                 $_request->protocol = $this->_kernel->getConfig("protocol");
                 $_request->method = "POST";
