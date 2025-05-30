@@ -5,7 +5,8 @@ namespace Alipay\EasySDK\Base\Qrcode\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AlipayOpenAppQrcodeCreateResponse extends Model {
+class AlipayOpenAppQrcodeCreateResponse extends Model
+{
     protected $_name = [
         'httpBody' => 'http_body',
         'code' => 'code',
@@ -13,16 +14,24 @@ class AlipayOpenAppQrcodeCreateResponse extends Model {
         'subCode' => 'sub_code',
         'subMsg' => 'sub_msg',
         'qrCodeUrl' => 'qr_code_url',
+        'qrCodeUrlCircleWhite' => 'qr_code_url_circle_white',
+        'qrCodeUrlCircleBlue' => 'qr_code_url_circle_blue',
     ];
-    public function validate() {
+
+    public function validate()
+    {
         Model::validateRequired('httpBody', $this->httpBody, true);
         Model::validateRequired('code', $this->code, true);
         Model::validateRequired('msg', $this->msg, true);
         Model::validateRequired('subCode', $this->subCode, true);
         Model::validateRequired('subMsg', $this->subMsg, true);
         Model::validateRequired('qrCodeUrl', $this->qrCodeUrl, true);
+        Model::validateRequired('qrCodeUrlCircleWhite', $this->qrCodeUrlCircleWhite, true);
+        Model::validateRequired('qrCodeUrlCircleBlue', $this->qrCodeUrlCircleBlue, true);
     }
-    public function toMap() {
+
+    public function toMap()
+    {
         $res = [];
         if (null !== $this->httpBody) {
             $res['http_body'] = $this->httpBody;
@@ -42,34 +51,49 @@ class AlipayOpenAppQrcodeCreateResponse extends Model {
         if (null !== $this->qrCodeUrl) {
             $res['qr_code_url'] = $this->qrCodeUrl;
         }
+        if (null !== $this->qrCodeUrlCircleWhite) {
+            $res['qr_code_url_circle_white'] = $this->qrCodeUrlCircleWhite;
+        }
+        if (null !== $this->qrCodeUrlCircleBlue) {
+            $res['qr_code_url_circle_blue'] = $this->qrCodeUrlCircleBlue;
+        }
         return $res;
     }
+
     /**
      * @param array $map
      * @return AlipayOpenAppQrcodeCreateResponse
      */
-    public static function fromMap($map = []) {
+    public static function fromMap($map = [])
+    {
         $model = new self();
-        if(isset($map['http_body'])){
+        if (isset($map['http_body'])) {
             $model->httpBody = $map['http_body'];
         }
-        if(isset($map['code'])){
+        if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-        if(isset($map['msg'])){
+        if (isset($map['msg'])) {
             $model->msg = $map['msg'];
         }
-        if(isset($map['sub_code'])){
+        if (isset($map['sub_code'])) {
             $model->subCode = $map['sub_code'];
         }
-        if(isset($map['sub_msg'])){
+        if (isset($map['sub_msg'])) {
             $model->subMsg = $map['sub_msg'];
         }
-        if(isset($map['qr_code_url'])){
+        if (isset($map['qr_code_url'])) {
             $model->qrCodeUrl = $map['qr_code_url'];
+        }
+        if (isset($map['qr_code_url_circle_white'])) {
+            $model->qrCodeUrlCircleWhite = $map['qr_code_url_circle_white'];
+        }
+        if (isset($map['qr_code_url_circle_blue'])) {
+            $model->qrCodeUrlCircleBlue = $map['qr_code_url_circle_blue'];
         }
         return $model;
     }
+
     /**
      * @description 响应原始字符串
      * @var string
@@ -100,5 +124,15 @@ class AlipayOpenAppQrcodeCreateResponse extends Model {
      * @var string
      */
     public $qrCodeUrl;
+
+    /**
+     * @var string
+     */
+    public $qrCodeUrlCircleWhite;
+
+    /**
+     * @var string
+     */
+    public $qrCodeUrlCircleBlue;
 
 }
